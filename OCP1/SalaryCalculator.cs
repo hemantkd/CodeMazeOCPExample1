@@ -17,7 +17,14 @@ namespace OCP1
 
             foreach (var devReport in _developerReports)
             {
-                totalSalaries += devReport.HourlyRate * devReport.WorkingHours;
+                if (devReport.Level == "Senior developer")
+                {
+                    totalSalaries += devReport.HourlyRate * devReport.WorkingHours * 1.2;
+                }
+                else
+                {
+                    totalSalaries += devReport.HourlyRate * devReport.WorkingHours;
+                }
             }
 
             return totalSalaries;
